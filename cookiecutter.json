@@ -1,0 +1,6 @@
+{
+  "plugin_name": "Polars Cookiecutter",
+  "project_slug": "{{ cookiecutter.plugin_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "plugin_namespace": "pc",
+  "author": "anonymous"
+}
