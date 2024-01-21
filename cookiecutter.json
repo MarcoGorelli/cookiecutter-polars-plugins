@@ -5,7 +5,7 @@
   "author": "",
   "__prompts__": {
     "plugin_name": "The project title",
-    "project_slug": "Is used for example for a GitHub repository name",
+    "project_slug": "The name of your Python package",
     "plugin_namespace": "The namespace for your plugin, e.g. `pc`",
     "author": ""
   }
