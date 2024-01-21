@@ -1,6 +1,12 @@
 {
   "plugin_name": "Polars Cookiecutter",
   "project_slug": "{{ cookiecutter.plugin_name.lower().replace(' ', '_').replace('-', '_') }}",
-  "plugin_namespace": "pc",
-  "author": "anonymous"
+  "plugin_namespace": "",
+  "author": "",
+  "__prompts__": {
+    "plugin_name": "The project title",
+    "project_slug": "Is used for example for a GitHub repository name",
+    "plugin_namespace": "The namespace for your plugin, e.g. `pc`",
+    "author": ""
+  }
 }
