@@ -28,12 +28,11 @@ This is how you would do that:
    ```
 2. When prompted, enter the following:
    ```
-   [1/4] plugin_name (Polars Cookiecutter): Polars Minimal Plugin
-   [2/4] project_slug (polars_minimal_plugin):
-   [3/4] plugin_namespace (pc): mp
-   [4/4] author (anonymous): Maja Anima
+   [1/3] plugin_name (Polars Cookiecutter): Minimal Plugin
+   [2/3] project_slug (minimal_plugin):
+   [3/3] author (anonymous): Maja Anima
    ```
-3. That's it! You can now do `cd polars_minimal_plugin` (or `cd` to
+3. That's it! You can now do `cd minimal_plugin` (or `cd` to
    whatever you're naming your plugin) and start developing your plugin!
 
 You may want to take a look at https://marcogorelli.github.io/polars-plugins-tutorial/
