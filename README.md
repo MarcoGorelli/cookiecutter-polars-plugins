@@ -16,9 +16,8 @@ First of all, make sure you have `cookiecutter` installed - see
 [here](https://cookiecutter.readthedocs.io/en/stable/installation.html)
 for how to do that.
 
-Then, suppose you want to create a Polars Plugin called "polars-minimal-plugin",
-which users will be able to access with the namespace `mp` (so, for example,
-`pl.col('a').mp`). Let's also suppose your name is "Maja Anima".
+Then, suppose you want to create a Polars Plugin called "polars-minimal-plugin".
+Let's also suppose your name is "Maja Anima".
 
 This is how you would do that:
 
