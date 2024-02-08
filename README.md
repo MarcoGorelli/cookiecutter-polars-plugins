@@ -16,7 +16,7 @@ First of all, make sure you have `cookiecutter` installed - see
 [here](https://cookiecutter.readthedocs.io/en/stable/installation.html)
 for how to do that.
 
-Then, suppose you want to create a Polars Plugin called "polars-minimal-plugin".
+Then, suppose you want to create a Polars Plugin called "minimal-plugin".
 Let's also suppose your name is "Maja Anima".
 
 This is how you would do that:
