@@ -1,5 +1,8 @@
 use polars::prelude::*;
 
+// This function is useful for writing functions which
+// accept pairs of List columns. Delete if unneded.
+#[allow(dead_code)]
 pub(crate) fn binary_amortized_elementwise<'a, T, K, F>(
     ca: &'a ListChunked,
     weights: &'a ListChunked,
