@@ -21,6 +21,7 @@ Let's also suppose your name is "Maja Anima".
 
 This is how you would do that:
 
+0. Install [Rust](https://rustup.rs/)
 1. In your home directory (or wherever you store your projects), run
    ```console
    cookiecutter https://github.com/MarcoGorelli/cookiecutter-polars-plugins.git
