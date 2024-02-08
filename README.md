@@ -55,9 +55,21 @@ This is how you would do that:
    ```
    If you see
    ```
-
+   shape: (5, 2)
+   ┌─────────┬───────────┐
+   │ english ┆ pig_latin │
+   │ ---     ┆ ---       │
+   │ str     ┆ str       │
+   ╞═════════╪═══════════╡
+   │ this    ┆ histay    │
+   │ is      ┆ siay      │
+   │ not     ┆ otnay     │
+   │ pig     ┆ igpay     │
+   │ latin   ┆ atinlay   │
+   └─────────┴───────────┘
    ```
-   then it means you did everything correctly!
+   then it means everything worked correctly! If not, please open an issue, happy
+   to help debug.
 
 Now, writing your plugin is a different story...please go to https://marcogorelli.github.io/polars-plugins-tutorial/
 for a tutorial on how to get started.
