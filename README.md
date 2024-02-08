@@ -23,7 +23,7 @@ This is how you would do that:
 
 1. In your home directory (or wherever you store your projects), run
    ```console
-   $ cookiecutter https://github.com/MarcoGorelli/cookiecutter-polars-plugins.git
+   cookiecutter https://github.com/MarcoGorelli/cookiecutter-polars-plugins.git
    ```
 2. When prompted, enter the following:
    ```
@@ -31,9 +31,26 @@ This is how you would do that:
    [2/3] project_slug (minimal_plugin):
    [3/3] author (anonymous): Maja Anima
    ```
-3. That's it! You can now do `cd minimal_plugin` (or `cd` to
-   whatever you're naming your plugin) and start developing your plugin!
+3. Navigate to the directory you just created. For example, if you named your plugin "Minimal Plugin",
+   you would do
+   ```
+   cd minimal_plugin
+   ```
+5. Create and activate a new Python 3.8+ [virtual environment](https://docs.python.org/3/library/venv.html).
+   For example, on Linux or MacOS this would be
+   ```
+   python3.11 -m venv .venv
+   . .venv/bin/activate
+   ```
+7. Install Polars and Maturin:
+   ```
+   pip install -U polars maturin
+   ```
+8. Start compiling the Rust code! This may take a few minutes the first time you do it, but subsequent
+   runs will be fast:
+   ```
+   maturin develop  # or, if you're benchmarking, maturin develop --release
+   ```
 
-You may want to take a look at https://marcogorelli.github.io/polars-plugins-tutorial/
-for how to get started with writing a plugin.
-
+Now, writing your plugin is a different story...please go to https://marcogorelli.github.io/polars-plugins-tutorial/
+for a tutorial on how to get started.
