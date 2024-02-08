@@ -38,7 +38,7 @@ This is how you would do that:
    ```
 4. Create and activate a new Python 3.8+ [virtual environment](https://docs.python.org/3/library/venv.html),
    and install Polars and Maturin.
-   For example, on Linux or MacOS this would be
+   For example, if you're on Linux or MacOS and want to use Python3.11, this would be
    ```
    python3.11 -m venv .venv
    . .venv/bin/activate
