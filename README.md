@@ -36,21 +36,29 @@ This is how you would do that:
    ```
    cd minimal_plugin
    ```
-5. Create and activate a new Python 3.8+ [virtual environment](https://docs.python.org/3/library/venv.html).
+4. Create and activate a new Python 3.8+ [virtual environment](https://docs.python.org/3/library/venv.html),
+   and install Polars and Maturin.
    For example, on Linux or MacOS this would be
    ```
    python3.11 -m venv .venv
    . .venv/bin/activate
-   ```
-7. Install Polars and Maturin:
-   ```
    pip install -U polars maturin
    ```
-8. Start compiling the Rust code! This may take a few minutes the first time you do it, but subsequent
+5. Start compiling the Rust code! This may take a few minutes the first time you do it, but subsequent
    runs will be fast:
    ```
    maturin develop  # or, if you're benchmarking, maturin develop --release
    ```
+6. Try running
+   ```
+   python run.py
+   ```
+   If you see
+   ```
+
+   ```
+   then it means you did everything correctly!
 
 Now, writing your plugin is a different story...please go to https://marcogorelli.github.io/polars-plugins-tutorial/
 for a tutorial on how to get started.
+

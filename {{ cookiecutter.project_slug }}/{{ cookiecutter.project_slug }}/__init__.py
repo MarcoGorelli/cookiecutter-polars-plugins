@@ -12,3 +12,11 @@ if TYPE_CHECKING:
 
 lib = _get_shared_lib_location(__file__)
 
+def add_one(expr: IntoExpr) -> pl.Expr:
+    expr = parse_into_expr(expr)
+    return expr._register_plugin(
+        lib=lib,
+        symbol="add_one",
+        is_elementwise=True,
+    )
+
