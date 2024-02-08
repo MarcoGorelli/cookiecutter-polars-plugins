@@ -3,8 +3,8 @@
 <h1 align="center">
         <img
                 width="200"
-                alt="image"
-                src="https://github.com/MarcoGorelli/cookiecutter-polars-plugins/assets/33491632/283905ec-cbfe-4b89-a8c9-f7a9547ed6d0">
+                alt="Image from https://chelsweets.com/polar-bear-cookies"
+                src="https://github.com/MarcoGorelli/cookiecutter-polars-plugins/assets/33491632/401ae923-a612-4346-bc65-523ee344f437">
 </h1>
 
 Easily get started with Polars Plugins - get the boilerplate
