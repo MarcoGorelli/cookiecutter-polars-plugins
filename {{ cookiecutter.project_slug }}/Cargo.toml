@@ -8,7 +8,7 @@ name = "{{ cookiecutter.project_slug }}"
 crate-type= ["cdylib"]
 
 [dependencies]
-pyo3 = { version = "0.20.0", features = ["extension-module"] }
+pyo3 = { version = "0.20.0", features = ["extension-module", "abi3-py38"] }
 pyo3-polars = { version = "0.11.1", features = ["derive"] }
 serde = { version = "1", features = ["derive"] }
 polars = { version = "0.37.0", default-features = false }
