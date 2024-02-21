@@ -14,7 +14,7 @@ lib = _get_shared_lib_location(__file__)
 
 def pig_latinnify(expr: IntoExpr) -> pl.Expr:
     expr = parse_into_expr(expr)
-    return expr._register_plugin(
+    return expr.register_plugin(
         lib=lib,
         symbol="pig_latinnify",
         is_elementwise=True,
