@@ -1,10 +1,5 @@
 {
   "plugin_name": "Polars Cookiecutter",
   "project_slug": "{{ cookiecutter.plugin_name.lower().replace(' ', '_').replace('-', '_') }}",
-  "author": "",
-  "__prompts__": {
-    "plugin_name": "The project title",
-    "project_slug": "The name of your Python module",
-    "author": ""
-  }
+  "author": ""
 }
