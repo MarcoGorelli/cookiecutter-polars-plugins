@@ -1,5 +1,5 @@
 import polars as pl
-from polars_ts import pig_latinnify
+from {{ cookiecutter.project_slug }} import pig_latinnify
 
 
 def test_piglatinnify():
