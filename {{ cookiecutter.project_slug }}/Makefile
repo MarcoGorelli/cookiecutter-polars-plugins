@@ -16,7 +16,7 @@ pre-commit: .venv
 	cargo fmt --all && cargo clippy --all-features
 	.venv/bin/python -m ruff check . --fix --exit-non-zero-on-fix
 	.venv/bin/python -m ruff format {{ cookiecutter.project_slug }} tests
-	.venv/bin/python -m mypy {{ cookiecutter.project_slug }} tests
+	.venv/bin/mypy {{ cookiecutter.project_slug }} tests
 
 test: .venv
 	.venv/bin/python -m pytest tests
