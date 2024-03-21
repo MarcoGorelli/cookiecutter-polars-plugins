@@ -9,13 +9,6 @@ if TYPE_CHECKING:
     from polars.type_aliases import IntoExpr, PolarsDataType
     from pathlib import Path
 
-if parse_version(pl.__version__) < parse_version("0.20.16"):
-    from polars.utils.udfs import _get_shared_lib_location
-
-    lib: str | Path = _get_shared_lib_location(__file__)
-else:
-    lib = Path(__file__).parent
-
 
 def parse_into_expr(
     expr: IntoExpr,
@@ -63,6 +56,7 @@ def register_plugin(
     is_elementwise: bool,
     kwargs: dict[str, Any] | None = None,
     args: list[IntoExpr],
+    lib: str | Path,
 ) -> pl.Expr:
     if parse_version(pl.__version__) < parse_version("0.20.16"):
         assert isinstance(args[0], pl.Expr)
