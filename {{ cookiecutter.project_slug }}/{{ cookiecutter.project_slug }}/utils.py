@@ -1,12 +1,13 @@
 from __future__ import annotations
 
 import re
-from typing import TYPE_CHECKING, Sequence
+from typing import TYPE_CHECKING, Sequence, Any
 
 import polars as pl
 
 if TYPE_CHECKING:
     from polars.type_aliases import IntoExpr, PolarsDataType
+    from pathlib import Path
 
 if parse_version(pl.__version__) < parse_version("0.20.16"):
     from polars.utils.udfs import _get_shared_lib_location
