@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from packaging.version import parse
 from typing import TYPE_CHECKING
 
 import polars as pl
@@ -57,7 +56,7 @@ def register_plugin(
     kwargs: dict[str, Any] | None = None,
     args: list[IntoExpr],
 ) -> pl.Expr:
-    if parse(pl.__version__) < parse("0.20.16"):
+    if parse_version(pl.__version__) < parse_version("0.20.16"):
         assert isinstance(args[0], pl.Expr)
         assert isinstance(lib, str)
         return args[0].register_plugin(
@@ -77,3 +76,9 @@ def register_plugin(
         is_elementwise=is_elementwise,
     )
 
+def parse_version(version: Sequence[str | int]) -> tuple[int, ...]:
+    """Simple version parser; split into a tuple of ints for comparison."""
+    # vendored from Polars
+    if isinstance(version, str):
+        version = version.split(".")
+    return tuple(int(re.sub(r"\D", "", str(v))) for v in version)
