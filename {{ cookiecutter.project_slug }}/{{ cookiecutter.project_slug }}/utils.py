@@ -78,7 +78,7 @@ def register_plugin(
     )
 
 def parse_version(version: Sequence[str | int]) -> tuple[int, ...]:
-    """Simple version parser; split into a tuple of ints for comparison."""
+    # Simple version parser; split into a tuple of ints for comparison.
     # vendored from Polars
     if isinstance(version, str):
         version = version.split(".")
