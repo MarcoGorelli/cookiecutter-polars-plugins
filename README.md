@@ -46,6 +46,8 @@ This is how you would do that:
    . .venv/bin/activate
    pip install -U polars maturin
    ```
+
+   Note: if you're using Python3.8, you will also need to install `packaging`.
 5. Start compiling the Rust code! This may take a few minutes the first time you do it, but subsequent
    runs will be fast:
    ```
