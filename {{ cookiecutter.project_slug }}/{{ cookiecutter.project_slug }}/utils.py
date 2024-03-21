@@ -8,6 +8,13 @@ import polars as pl
 if TYPE_CHECKING:
     from polars.type_aliases import IntoExpr, PolarsDataType
 
+if parse_version(pl.__version__) < parse_version("0.20.16"):
+    from polars.utils.udfs import _get_shared_lib_location
+
+    lib: str | Path = _get_shared_lib_location(__file__)
+else:
+    lib = Path(__file__).parent
+
 
 def parse_into_expr(
     expr: IntoExpr,
@@ -51,7 +58,6 @@ def parse_into_expr(
 
 def register_plugin(
     *,
-    lib: str | Path,
     symbol: str,
     is_elementwise: bool,
     kwargs: dict[str, Any] | None = None,
@@ -83,3 +89,4 @@ def parse_version(version: Sequence[str | int]) -> tuple[int, ...]:
     if isinstance(version, str):
         version = version.split(".")
     return tuple(int(re.sub(r"\D", "", str(v))) for v in version)
+
