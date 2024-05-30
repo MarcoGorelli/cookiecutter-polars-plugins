@@ -9,10 +9,10 @@ use jemallocator::Jemalloc;
 static ALLOC: Jemalloc = Jemalloc;
 
 use pyo3::types::PyModule;
-use pyo3::{pymodule, PyResult, Python};
+use pyo3::{pymodule, PyResult, Bound};
 
 #[pymodule]
-fn {{ cookiecutter.project_slug }}(_py: Python, m: &PyModule) -> PyResult<()> {
+fn {{ cookiecutter.project_slug }}(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add("__version__", env!("CARGO_PKG_VERSION"))?;
     Ok(())
 }
