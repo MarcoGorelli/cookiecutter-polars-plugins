@@ -29,7 +29,7 @@ This is how you would do that:
    ```
 2. When prompted, enter the following:
    ```
-   [1/3] plugin_name (Polars Cookiecutter): Minimal Plugin
+   [1/3] plugin_name (My Plugin): Minimal Plugin
    [2/3] project_slug (minimal_plugin):
    [3/3] author (anonymous): Maja Anima
    ```

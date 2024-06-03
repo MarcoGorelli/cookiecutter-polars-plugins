@@ -1,5 +1,5 @@
 {
-  "plugin_name": "Polars Cookiecutter",
+  "plugin_name": "My Plugin",
   "project_slug": "{{ cookiecutter.plugin_name.lower().replace(' ', '_').replace('-', '_') }}",
   "author": ""
 }
