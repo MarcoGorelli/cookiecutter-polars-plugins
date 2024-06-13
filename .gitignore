@@ -1,1 +1,8 @@
 *.zip
+.venv
+venv
+*.pyc
+*.so
+*.pyd
+*.dll
+
