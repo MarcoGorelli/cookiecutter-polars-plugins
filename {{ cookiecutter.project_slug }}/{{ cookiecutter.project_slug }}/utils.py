@@ -57,6 +57,7 @@ def register_plugin(
     kwargs: dict[str, Any] | None = None,
     args: list[IntoExpr],
     lib: str | Path,
+    returns_scalar: bool,
 ) -> pl.Expr:
     if parse_version(pl.__version__) < parse_version("0.20.16"):
         assert isinstance(args[0], pl.Expr)
@@ -67,6 +68,7 @@ def register_plugin(
             args=args[1:],
             kwargs=kwargs,
             is_elementwise=is_elementwise,
+            returns_scalar=returns_scalar,
         )
     from polars.plugins import register_plugin_function
 
@@ -76,6 +78,7 @@ def register_plugin(
         function_name=symbol,
         kwargs=kwargs,
         is_elementwise=is_elementwise,
+        returns_scalar=returns_scalar,
     )
 
 def parse_version(version: Sequence[str | int]) -> tuple[int, ...]:
