@@ -60,9 +60,9 @@ def register_plugin(
     returns_scalar: bool = False,
 ) -> pl.Expr:
     if parse_version(pl.__version__) < parse_version("0.20.16"):
-        assert isinstance(args[0], pl.Expr)
+        expr = parse_into_expr(args[0])
         assert isinstance(lib, str)
-        return args[0].register_plugin(
+        return expr.register_plugin(
             lib=lib,
             symbol=symbol,
             args=args[1:],

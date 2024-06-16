@@ -18,7 +18,6 @@ else:
     lib = Path(__file__).parent
 
 def pig_latinnify(expr: IntoExpr) -> pl.Expr:
-    expr = parse_into_expr(expr)
     return register_plugin(
         args=[expr],
         symbol="pig_latinnify",
