@@ -10,3 +10,7 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
+
+[tool.maturin]
+module-name = "{{ cookiecutter.project_slug }}._internal"
+
