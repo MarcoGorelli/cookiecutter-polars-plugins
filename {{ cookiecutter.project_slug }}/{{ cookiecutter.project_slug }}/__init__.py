@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING
 
 import polars as pl
 
+from {{ cookiecutter.project_slug }}._internal import __version__
 from {{ cookiecutter.project_slug }}.utils import parse_into_expr, register_plugin, parse_version
 
 if TYPE_CHECKING:

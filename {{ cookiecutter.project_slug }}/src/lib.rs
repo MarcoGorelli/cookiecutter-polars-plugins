@@ -12,7 +12,7 @@ use pyo3::types::PyModule;
 use pyo3::{pymodule, PyResult, Bound};
 
 #[pymodule]
-fn {{ cookiecutter.project_slug }}(m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn _internal(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add("__version__", env!("CARGO_PKG_VERSION"))?;
     Ok(())
 }
