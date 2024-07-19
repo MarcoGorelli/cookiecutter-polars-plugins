@@ -14,3 +14,6 @@ classifiers = [
 [tool.maturin]
 module-name = "{{ cookiecutter.project_slug }}._internal"
 
+[[tool.mypy.overrides]]
+module = "polars.utils.udfs"
+ignore_missing_imports = true
