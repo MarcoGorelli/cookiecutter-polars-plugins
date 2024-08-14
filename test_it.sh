@@ -6,7 +6,8 @@ cookiecutter ~/cookiecutter-polars-plugins --no-input
 cd my_plugin
 uv venv -p python3.12
 . .venv/bin/activate
-uv pip install -U polars maturin pytest pip
+uv pip install -U polars maturin mypy pytest pip
 make install
 pytest
+mypy my_plugin tests
 

@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING, Sequence, Any
 import polars as pl
 
 if TYPE_CHECKING:
-    from polars.type_aliases import IntoExpr, PolarsDataType
+    from {{ cookiecutter.project_slug }}.typing import IntoExpr, PolarsDataType
     from pathlib import Path
 
 
@@ -65,7 +65,7 @@ def register_plugin(
         return expr.register_plugin(
             lib=lib,
             symbol=symbol,
-            args=args[1:],
+            args=args[1:],  # type: ignore[arg-type]
             kwargs=kwargs,
             is_elementwise=is_elementwise,
             returns_scalar=returns_scalar,
@@ -80,6 +80,7 @@ def register_plugin(
         is_elementwise=is_elementwise,
         returns_scalar=returns_scalar,
     )
+
 
 def parse_version(version: Sequence[str | int]) -> tuple[int, ...]:
     # Simple version parser; split into a tuple of ints for comparison.
