@@ -6,13 +6,13 @@ from typing import TYPE_CHECKING
 import polars as pl
 
 from {{ cookiecutter.project_slug }}._internal import __version__ as __version__
-from {{ cookiecutter.project_slug }}.utils import parse_into_expr, register_plugin, parse_version
+from {{ cookiecutter.project_slug }}.utils import register_plugin, parse_version
 
 if TYPE_CHECKING:
-    from polars.type_aliases import IntoExpr
+    from {{ cookiecutter.project_slug }}.typing import IntoExpr
 
 if parse_version(pl.__version__) < parse_version("0.20.16"):
-    from polars.utils.udfs import _get_shared_lib_location
+    from polars.utils.udfs import _get_shared_lib_location  # type: ignore[import-not-found]
 
     lib: str | Path = _get_shared_lib_location(__file__)
 else:
