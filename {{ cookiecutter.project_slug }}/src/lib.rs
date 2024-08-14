@@ -1,4 +1,5 @@
 mod expressions;
+use pyo3::types::PyModuleMethods;
 
 #[cfg(target_os = "linux")]
 use jemallocator::Jemalloc;
@@ -8,10 +9,11 @@ use jemallocator::Jemalloc;
 static ALLOC: Jemalloc = Jemalloc;
 
 use pyo3::types::PyModule;
-use pyo3::{pymodule, PyResult, Bound};
+use pyo3::{pymodule, Bound, PyResult};
 
 #[pymodule]
 fn _internal(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add("__version__", env!("CARGO_PKG_VERSION"))?;
     Ok(())
 }
+
