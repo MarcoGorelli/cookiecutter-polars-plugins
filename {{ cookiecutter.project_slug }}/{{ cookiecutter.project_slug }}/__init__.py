@@ -18,6 +18,7 @@ if parse_version(pl.__version__) < parse_version("0.20.16"):
 else:
     lib = Path(__file__).parent
 
+
 def pig_latinnify(expr: IntoExpr) -> pl.Expr:
     return register_plugin(
         args=[expr],

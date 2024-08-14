@@ -81,6 +81,7 @@ def register_plugin(
         returns_scalar=returns_scalar,
     )
 
+
 def parse_version(version: Sequence[str | int]) -> tuple[int, ...]:
     # Simple version parser; split into a tuple of ints for comparison.
     # vendored from Polars
