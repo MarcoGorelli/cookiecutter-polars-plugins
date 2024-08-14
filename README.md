@@ -61,7 +61,7 @@ This is how you would do that:
       ```
    5. Install Polars and Maturin:
       ```
-      uv pip install -U polars maturin
+      uv pip install -U polars maturin pip
       ```
 5. Start compiling the Rust code! This may take a few minutes the first time you do it, but subsequent
    runs will be fast:
