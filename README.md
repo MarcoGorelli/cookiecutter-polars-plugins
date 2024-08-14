@@ -38,14 +38,31 @@ This is how you would do that:
    ```
    cd minimal_plugin
    ```
-4. Create and activate a new Python 3.8+ [virtual environment](https://docs.python.org/3/library/venv.html),
-   and install Polars and Maturin.
-   For example, if you're on Linux or MacOS and want to use Python3.11, this would be
-   ```
-   python3.11 -m venv .venv
-   . .venv/bin/activate
-   pip install -U polars maturin
-   ```
+4. Create and activate a new Python 3.8+ virtual environment and install Polars and Maturin.
+   If you're new to this, here's one way that we recommend:
+
+   1. Install uv: https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started
+   2. Install some version of Python greater than Python3.8. For example, to install
+      Python3.11:
+      ```
+      uv python install 3.11
+      ```
+   3. Create a virtual environment:
+      ```
+      uv venv -p python3.11
+      ```
+   4. Activate your virtual environment:
+      ```
+      # On macOS and Linux.
+      source .venv/bin/activate
+
+      # On Windows.
+      .venv\Scripts\activate
+      ```
+   5. Install Polars and Maturin:
+      ```
+      uv pip install -U polars maturin pip
+      ```
 5. Start compiling the Rust code! This may take a few minutes the first time you do it, but subsequent
    runs will be fast:
    ```
