@@ -10,4 +10,5 @@ uv pip install -U polars maturin mypy pytest pip
 make install
 pytest
 mypy my_plugin tests
+python -c 'import my_plugin; print(my_plugin.__version__)'
 
