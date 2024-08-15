@@ -13,6 +13,3 @@ pyo3-polars = { version = "0.16.0", features = ["derive"] }
 serde = { version = "1", features = ["derive"] }
 polars = { version = "0.42.0", default-features = false }
 
-[target.'cfg(target_os = "linux")'.dependencies]
-jemallocator = { version = "0.5", features = ["disable_initial_exec_tls"] }
-
