@@ -1,0 +1,40 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+      - name: Install cookiecutter tool
+        run: |
+          uv tool install cookiecutter
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+      - name: Create plugin
+        run: |
+          cookiecutter . --no-input
+      - name: Create environment and install dependencies
+        run: |
+          uv venv -p python3.12
+          . .venv/bin/activate
+          # adds venv into path for future steps
+          echo "$PATH" >> $GITHUB_PATH
+
+          uv pip install -U polars maturin mypy pytest pip
+          make install
+        working-directory: my_plugin
+      - name: Run linting and tests
+        run: |
+          mypy my_plugin tests
+          pytest
+        working-directory: my_plugin
+      - name: Check version
+        run: |
+          python -c 'import my_plugin; print(my_plugin.__version__)'
+        working-directory: my_plugin
