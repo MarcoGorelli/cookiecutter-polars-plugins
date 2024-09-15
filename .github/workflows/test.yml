@@ -13,27 +13,34 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-      - uses: yezz123/setup-uv@v4
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v2
+        with:
+          version: "latest"
       - run: uv --version
       - name: Install cookiecutter tool
         run: |
+          uv venv
           uv pip install install cookiecutter
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
       - name: Create plugin
         run: |
+          . .venv/bin/activate
           cookiecutter . --no-input
       - name: Create environment and install dependencies
         run: |
+          . .venv/bin/activate
           uv pip install -U polars maturin mypy pytest pip
           make install
         working-directory: my_plugin
       - name: Run linting and tests
         run: |
+          . .venv/bin/activate
           mypy my_plugin tests
           pytest
         working-directory: my_plugin
       - name: Check version
         run: |
+          . .venv/bin/activate
           python -c 'import my_plugin; print(my_plugin.__version__)'
         working-directory: my_plugin
   windows:
@@ -43,25 +50,34 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-      - uses: yezz123/setup-uv@v4
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v2
+        with:
+          version: "latest"
       - run: uv --version
       - name: Install cookiecutter tool
         run: |
+          uv venv
+          . .venv\Scripts\activate
           uv pip install install cookiecutter
       - name: Create plugin
         run: |
+          . .venv\Scripts\activate
           cookiecutter . --no-input
       - name: Create environment and install dependencies
         run: |
+          . .venv\Scripts\activate
           uv pip install -U polars maturin mypy pytest pip
           make install
         working-directory: my_plugin
       - name: Run linting and tests
         run: |
+          . .venv\Scripts\activate
           mypy my_plugin tests
           pytest
         working-directory: my_plugin
       - name: Check version
         run: |
+          . .venv\Scripts\activate
           python -c 'import my_plugin; print(my_plugin.__version__)'
         working-directory: my_plugin
