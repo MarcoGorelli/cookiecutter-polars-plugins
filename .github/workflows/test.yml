@@ -17,7 +17,7 @@ jobs:
       - run: uv --version
       - name: Install cookiecutter tool
         run: |
-          uv tool install cookiecutter
+          uv pip install install cookiecutter
           echo "$HOME/.local/bin" >> $GITHUB_PATH
       - name: Create plugin
         run: |
@@ -47,7 +47,7 @@ jobs:
       - run: uv --version
       - name: Install cookiecutter tool
         run: |
-          uv tool install cookiecutter
+          uv pip install install cookiecutter
       - name: Create plugin
         run: |
           cookiecutter . --no-input
