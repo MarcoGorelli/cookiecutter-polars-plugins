@@ -28,19 +28,20 @@ jobs:
           cookiecutter . --no-input
       - name: Create environment and install dependencies
         run: |
-          . ../.venv/bin/activate
+          uv venv --seed
+          . .venv/bin/activate
           uv pip install -U polars maturin mypy pytest pip
           make install
         working-directory: my_plugin
       - name: Run linting and tests
         run: |
-          . ../.venv/bin/activate
+          . .venv/bin/activate
           mypy my_plugin tests
           pytest
         working-directory: my_plugin
       - name: Check version
         run: |
-          . ../.venv/bin/activate
+          . .venv/bin/activate
           python -c 'import my_plugin; print(my_plugin.__version__)'
         working-directory: my_plugin
   windows:
@@ -66,18 +67,19 @@ jobs:
           cookiecutter . --no-input
       - name: Create environment and install dependencies
         run: |
-          . ..\.venv\Scripts\activate
+          make venv --seed
+          . .venv\Scripts\activate
           uv pip install -U polars maturin mypy pytest pip
           make install
         working-directory: my_plugin
       - name: Run linting and tests
         run: |
-          . ..\.venv\Scripts\activate
+          . .venv\Scripts\activate
           mypy my_plugin tests
           pytest
         working-directory: my_plugin
       - name: Check version
         run: |
-          . ..\.venv\Scripts\activate
+          . .venv\Scripts\activate
           python -c 'import my_plugin; print(my_plugin.__version__)'
         working-directory: my_plugin
