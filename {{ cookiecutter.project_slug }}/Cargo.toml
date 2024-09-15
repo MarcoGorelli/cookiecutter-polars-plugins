@@ -17,5 +17,5 @@ polars = { version = "0.43.1", default-features = false }
 # https://github.com/pola-rs/pyo3-polars/pull/103 is included in
 # a release
 [patch.crates-io]
-pyo3-polars = { git = "https://github.com/pola-rs/polars.git" }
+pyo3-polars = { git = "https://github.com/pola-rs/pyo3-polars.git" }
 
