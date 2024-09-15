@@ -67,7 +67,7 @@ jobs:
           cookiecutter . --no-input
       - name: Create environment and install dependencies
         run: |
-          make venv --seed
+          uv venv --seed
           . .venv\Scripts\activate
           uv pip install -U polars maturin mypy pytest pip
           make install
