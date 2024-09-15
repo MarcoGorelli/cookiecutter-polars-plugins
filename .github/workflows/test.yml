@@ -21,26 +21,26 @@ jobs:
       - name: Install cookiecutter tool
         run: |
           uv venv
-          uv pip install cookiecutter
+          uv pip install -U cookiecutter pip
       - name: Create plugin
         run: |
           . .venv/bin/activate
           cookiecutter . --no-input
       - name: Create environment and install dependencies
         run: |
-          . .venv/bin/activate
+          . ../.venv/bin/activate
           uv pip install -U polars maturin mypy pytest pip
           make install
         working-directory: my_plugin
       - name: Run linting and tests
         run: |
-          . .venv/bin/activate
+          . ../.venv/bin/activate
           mypy my_plugin tests
           pytest
         working-directory: my_plugin
       - name: Check version
         run: |
-          . .venv/bin/activate
+          . ../.venv/bin/activate
           python -c 'import my_plugin; print(my_plugin.__version__)'
         working-directory: my_plugin
   windows:
@@ -59,25 +59,25 @@ jobs:
         run: |
           uv venv
           . .venv\Scripts\activate
-          uv pip install cookiecutter
+          uv pip install -U cookiecutter pip
       - name: Create plugin
         run: |
           . .venv\Scripts\activate
           cookiecutter . --no-input
       - name: Create environment and install dependencies
         run: |
-          . .venv\Scripts\activate
+          . ..\.venv\Scripts\activate
           uv pip install -U polars maturin mypy pytest pip
           make install
         working-directory: my_plugin
       - name: Run linting and tests
         run: |
-          . .venv\Scripts\activate
+          . ..\.venv\Scripts\activate
           mypy my_plugin tests
           pytest
         working-directory: my_plugin
       - name: Check version
         run: |
-          . .venv\Scripts\activate
+          . ..\.venv\Scripts\activate
           python -c 'import my_plugin; print(my_plugin.__version__)'
         working-directory: my_plugin
