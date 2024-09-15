@@ -31,7 +31,7 @@ jobs:
           uv venv --seed
           . .venv/bin/activate
           uv pip install -U polars maturin mypy pytest pip
-          make install
+          maturin develop
         working-directory: my_plugin
       - name: Run linting and tests
         run: |
@@ -70,7 +70,7 @@ jobs:
           uv venv --seed
           . .venv\Scripts\activate
           uv pip install -U polars maturin mypy pytest pip
-          make install
+          maturin develop
         working-directory: my_plugin
       - name: Run linting and tests
         run: |
