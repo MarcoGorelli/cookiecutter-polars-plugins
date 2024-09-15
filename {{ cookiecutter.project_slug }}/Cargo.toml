@@ -13,3 +13,9 @@ pyo3-polars = { version = "0.17.0", features = ["derive"] }
 serde = { version = "1", features = ["derive"] }
 polars = { version = "0.43.1", default-features = false }
 
+# hopefully temporary until
+# https://github.com/pola-rs/pyo3-polars/pull/103 is included in
+# a release
+[patch.crates-io]
+pyo3-polars = { git = "https://github.com/pola-rs/pyo3-polars.git" }
+

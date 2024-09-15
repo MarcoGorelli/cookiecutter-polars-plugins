@@ -6,35 +6,80 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  linux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install uv
-        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v2
+        with:
+          version: "latest"
+      - run: uv --version
       - name: Install cookiecutter tool
         run: |
-          uv tool install cookiecutter
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          uv venv
+          uv pip install -U cookiecutter pip
       - name: Create plugin
         run: |
+          . .venv/bin/activate
           cookiecutter . --no-input
       - name: Create environment and install dependencies
         run: |
-          uv venv -p python3.12
+          uv venv --seed
           . .venv/bin/activate
-          # adds venv into path for future steps
-          echo "$PATH" >> $GITHUB_PATH
-
           uv pip install -U polars maturin mypy pytest pip
-          make install
+          maturin develop
         working-directory: my_plugin
       - name: Run linting and tests
         run: |
+          . .venv/bin/activate
           mypy my_plugin tests
           pytest
         working-directory: my_plugin
       - name: Check version
         run: |
+          . .venv/bin/activate
+          python -c 'import my_plugin; print(my_plugin.__version__)'
+        working-directory: my_plugin
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v2
+        with:
+          version: "latest"
+      - run: uv --version
+      - name: Install cookiecutter tool
+        run: |
+          uv venv
+          . .venv\Scripts\activate
+          uv pip install -U cookiecutter pip
+      - name: Create plugin
+        run: |
+          . .venv\Scripts\activate
+          cookiecutter . --no-input
+      - name: Create environment and install dependencies
+        run: |
+          uv venv --seed
+          . .venv\Scripts\activate
+          uv pip install -U polars maturin mypy pytest pip
+          maturin develop
+        working-directory: my_plugin
+      - name: Run linting and tests
+        run: |
+          . .venv\Scripts\activate
+          mypy my_plugin tests
+          pytest
+        working-directory: my_plugin
+      - name: Check version
+        run: |
+          . .venv\Scripts\activate
           python -c 'import my_plugin; print(my_plugin.__version__)'
         working-directory: my_plugin
