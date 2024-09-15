@@ -21,7 +21,7 @@ jobs:
       - name: Install cookiecutter tool
         run: |
           uv venv
-          uv pip install install cookiecutter
+          uv pip install cookiecutter
       - name: Create plugin
         run: |
           . .venv/bin/activate
@@ -59,7 +59,7 @@ jobs:
         run: |
           uv venv
           . .venv\Scripts\activate
-          uv pip install install cookiecutter
+          uv pip install cookiecutter
       - name: Create plugin
         run: |
           . .venv\Scripts\activate
