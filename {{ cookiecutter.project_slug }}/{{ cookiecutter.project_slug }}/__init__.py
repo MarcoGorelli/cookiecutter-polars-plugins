@@ -9,12 +9,12 @@ from polars.plugins import register_plugin_function
 from {{ cookiecutter.project_slug }}._internal import __version__ as __version__
 
 if TYPE_CHECKING:
-    from {{ cookiecutter.project_slug }}.typing import IntoExpr
+    from {{ cookiecutter.project_slug }}.typing import IntoExprColumn
 
 LIB = Path(__file__).parent
 
 
-def pig_latinnify(expr: IntoExpr) -> pl.Expr:
+def pig_latinnify(expr: IntoExprColumn) -> pl.Expr:
     return register_plugin_function(
         args=[expr],
         plugin_path=LIB,
