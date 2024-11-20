@@ -1,5 +1,5 @@
 mod expressions;
-use pyo3::types::{PyModule, PyModuleMethods};
+use pyo3::types::{PyModule};
 use pyo3::{pymodule, Bound, PyResult};
 use pyo3_polars::PolarsAllocator;
 
