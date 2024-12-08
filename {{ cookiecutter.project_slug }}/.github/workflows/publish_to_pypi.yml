@@ -9,6 +9,7 @@
 # - have separate linux-just-test and linux-min-versions-just-test jobs
 # - add the `RUSTFLAGS: "-Dwarnings"` env variable
 
+{% raw %}
 name: CI
 
 on:
@@ -189,4 +190,4 @@ jobs:
         with:
           command: upload
           args: --non-interactive --skip-existing wheels-*/*
-
+{% endraw %}
