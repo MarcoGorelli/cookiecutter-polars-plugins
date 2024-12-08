@@ -1,5 +1,9 @@
 SHELL=/bin/bash
 
+venv:
+	python3 -m venv .venv
+	.venv/bin/pip install -r requirements.txt
+
 install:
 	unset CONDA_PREFIX && \
 	source .venv/bin/activate && maturin develop
