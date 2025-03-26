@@ -38,11 +38,11 @@ This is how you would do that:
    ```
    cd minimal_plugin
    ```
-4. Create and activate a new Python 3.8+ virtual environment and install Polars and Maturin.
+4. Create and activate a new Python 3.9+ virtual environment and install Polars and Maturin.
    If you're new to this, here's one way that we recommend:
 
    1. Install uv: https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started
-   2. Install some version of Python greater than Python3.8. For example, to install
+   2. Install some version of Python greater than Python3.9. For example, to install
       Python3.11:
       ```
       uv python install 3.11
