@@ -13,7 +13,7 @@ install-release:
 	source .venv/bin/activate && maturin develop --release
 
 pre-commit:
-	cargo +nightly fmt --all && cargo clippy --all-features
+	cargo fmt --all && cargo clippy --all-features
 	.venv/bin/python -m ruff check . --fix --exit-non-zero-on-fix
 	.venv/bin/python -m ruff format {{ cookiecutter.project_slug }} tests
 	.venv/bin/mypy {{ cookiecutter.project_slug }} tests
