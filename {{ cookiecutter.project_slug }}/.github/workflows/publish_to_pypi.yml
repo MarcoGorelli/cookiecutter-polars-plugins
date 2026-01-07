@@ -44,6 +44,8 @@ jobs:
 
       - name: Set up Rust
         run: rustup show
+      - run: rustup component add --toolchain nightly-x86_64-unknown-linux-gnu rustfmt
+      - run: rustup component add --toolchain nightly-2025-05-21-x86_64-unknown-linux-gnu clippy
       - uses: mozilla-actions/sccache-action@v0.0.6
       - run: make venv
       - run: make pre-commit
